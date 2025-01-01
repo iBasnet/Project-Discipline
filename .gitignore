@@ -1,2 +1,3 @@
+# exclusion
 */node_modules
 */.env
