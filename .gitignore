@@ -1,4 +1,4 @@
 # exclusion
 */node_modules
 */.env
-Design
+/Design
