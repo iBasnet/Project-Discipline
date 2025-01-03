@@ -26,13 +26,14 @@ section.hero {
     form {
         background-color: var(--s9);
         background-image: linear-gradient(var(--s8), var(--s9));
-        padding: 2rem 4rem;
+        padding: 2rem 3rem;
         border-radius: 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 2rem;
         user-select: none;
+        position: relative;
 
         .hero__title {
             text-align: center;
@@ -60,10 +61,12 @@ section.hero {
         .hero__input {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1rem;
             /* border: 5px solid #df0; */
 
-            input {
+            input,
+            select,
+            option {
                 height: 3rem;
                 padding: 0 1rem;
                 border: none;
@@ -84,6 +87,19 @@ section.hero {
                 border: 2px solid springgreen;
                 box-shadow: 0 0 5px 0 rgba(0, 255, 128, 0.5);
             }
+
+            select {
+                margin-left: 2px;
+                appearance: none;
+                aspect-ratio: 1;
+            }
+
+            select:focus,
+            option:focus {
+                border: 2px solid #af0;
+                box-shadow: 0 0 5px 0 rgba(170, 255, 0, 0.5);
+                box-shadow: inset 0 0 50px 0 rgba(170, 255, 0, 0.3);
+            }
         }
 
         button {
@@ -96,6 +112,7 @@ section.hero {
             background-color: transparent;
             text-transform: uppercase;
             font-family: 'Clash Display', system-ui;
+            letter-spacing: 1px;
             font-weight: 600;
             position: relative;
             isolation: isolate;
@@ -119,6 +136,25 @@ section.hero {
         button:hover {
             /* background-color: hsl(80, 100%, 45%); */
             filter: drop-shadow(0 0 2.5px #af0);
+        }
+
+        .control-group {
+            display: flex;
+            width: calc(100% - 2rem);
+            justify-content: space-between;
+            position: absolute;
+            bottom: 1rem;
+        }
+
+        .control-group>* {
+            font-size: 2rem;
+            color: var(--s6);
+            transition: all 0.3s ease;
+        }
+
+        .control-group>*:hover {
+            color: var(--s4);
+            cursor: pointer;
         }
     }
 }
