@@ -1,6 +1,15 @@
-import Hero from './Hero'
+import { useContext, useEffect } from 'react'
+import Hero from './components/Hero'
+import { FormContext } from './context/FormContext'
 
 export default function App() {
+
+  const { state } = useContext(FormContext);
+
+  useEffect(() => {
+    console.log(state)
+  }, [state]);
+
   return (
     <main>
       <h1>Project Discipline</h1>
