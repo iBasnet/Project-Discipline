@@ -8,7 +8,7 @@ type willTry = boolean | null;
 
 export default function Hero() {
 
-    const { state, dispatch } = useContext(FormContext);
+    const { dispatch } = useContext(FormContext);
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
