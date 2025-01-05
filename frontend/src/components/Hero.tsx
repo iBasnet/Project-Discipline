@@ -8,21 +8,15 @@ type willTry = boolean | null;
 
 export default function Hero() {
 
-    const { dispatch } = useContext(FormContext);
+    const { state, dispatch } = useContext(FormContext);
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
     }
 
-    const parseOptions = (option: string) => {
+    const parseOptions = (option: string) => (option === 'null' ? null : option === 'true' ? true : false)
 
-        if (option === 'null') {
-            return null;
-        }
-        else {
-            return option === 'true' ? true : false;
-        }
-    }
+    const stringifyOptions = (option: boolean | null) => (option === null ? 'null' : option ? 'true' : 'false')
 
     return (
         <section className="hero">
@@ -34,9 +28,11 @@ export default function Hero() {
                 <div className="form__input">
                     <div className="form__group-1">
                         <input type="link" placeholder="Video Link"
+                            value={state.link}
                             onChange={(e) => dispatch({ type: 'SET_LINK', payload: e.target.value as string })}
                         />
                         <select defaultValue={'B'}
+                            value={state.tier}
                             onChange={(e) => dispatch({ type: 'SET_TIER', payload: e.target.value as Tier })}
                         >
                             <option value="S">S</option>
@@ -49,22 +45,23 @@ export default function Hero() {
                         </select>
                     </div>
                     <input type="text" placeholder="Remarks"
+                        value={state.remarks}
                         onChange={(e) => dispatch({ type: 'SET_REMARKS', payload: e.target.value as string })}
                     />
                     <div className="form__group-2">
                         <input type="text" placeholder='Will you try this?' readOnly />
-                        <select defaultValue="null"
+                        <select value={stringifyOptions(state.willTry)}
                             onChange={(e) => dispatch({ type: 'SET_WILL-TRY', payload: parseOptions(e.target.value) as willTry })}
                         >
-                            <option value={'true'}>Yes</option>
-                            <option value={'false'} >No</option>
-                            <option value={'null'}>Maybe</option>
+                            <option value='true'>Yes</option>
+                            <option value='false'>No</option>
+                            <option value='null'>Maybe</option>
                         </select>
                     </div>
                 </div>
                 <button type="submit" onClick={handleSubmit}>Submit</button>
                 <div className="form__control">
-                    <BiReset title="Reset form" />
+                    <BiReset title="Reset form" onClick={() => dispatch({ type: 'RESET_STATE' })} />
                     <RiUploadCloud2Fill title="Update data" />
                 </div>
             </form>

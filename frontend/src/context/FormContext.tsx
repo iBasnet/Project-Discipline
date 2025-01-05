@@ -21,6 +21,7 @@ type Action =
     | { type: 'SET_TIER'; payload: Tier }
     | { type: 'SET_REMARKS'; payload: string }
     | { type: 'SET_WILL-TRY'; payload: boolean | null }
+    | { type: 'RESET_STATE' }
 
 const formReducer = (state: FormState, action: Action): FormState => {
 
@@ -36,6 +37,9 @@ const formReducer = (state: FormState, action: Action): FormState => {
 
         case 'SET_WILL-TRY':
             return { ...state, willTry: action.payload };
+
+        case 'RESET_STATE':
+            return initialState;
 
         default:
             return state;

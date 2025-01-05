@@ -10,6 +10,7 @@ export default function App() {
     console.log(state)
   }, [state]);
 
+
   return (
     <main>
       <h1>Project Discipline</h1>
