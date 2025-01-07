@@ -33,11 +33,13 @@ export default function Hero() {
 
             if (!response.ok) {
                 console.error('Failed to submit form');
+                return;
             }
-            // dispatch({ type: 'RESET_STATE' });
 
-            // setShowAlert(true);
-            // setTimeout(() => setShowAlert(false), 3000);
+            dispatch({ type: 'RESET_STATE' });
+
+            setShowAlert(true);
+            setTimeout(() => setShowAlert(false), 3000);
         }
         catch (error) {
             console.error('Error caught submitting form', error);
