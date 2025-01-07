@@ -12,14 +12,14 @@ const getAllVideos = async (req, res) => {
 
 // Create a new video
 const createVideo = async (req, res) => {
-    const { link, tier, remarks } = req.body;
+    const { link, tier, remarks, willTry } = req.body;
 
-    if (!link || !tier || !remarks) {
+    if (!link || !tier || !remarks || !willTry) {
         return res.status(400).json({ message: 'Link and tier are required' });
     }
 
     try {
-        const video = new Video({ link, tier, remarks });
+        const video = new Video({ link, tier, remarks, willTry });
         const savedVideo = await video.save();
         res.status(201).json(savedVideo);
     } catch (error) {

@@ -15,6 +15,10 @@ const videoSchema = new mongoose.Schema(
             type: String,
             required: [true, 'A remarks is required'],
         },
+        willTry: {
+            type: mongoose.Schema.Types.Mixed,
+            required: [true, 'A decision is required'],
+        },
     },
     {
         timestamps: true, // Enable timestamps

@@ -1,0 +1,65 @@
+.alert--success {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    width: 13.5rem;
+    gap: .5rem;
+    padding: 0 .75rem;
+    /* border: 1px solid lime; */
+    /* background-color: var(--s9); */
+    background-image: url(crissxcross.png);
+    background-size: contain;
+    border-radius: .5rem;
+    border: 2px solid var(--s7);
+    border-right: 0;
+    /* border-bottom: 0; */
+    user-select: none;
+    overflow: hidden;
+
+    &.alert--success::after {
+        content: '';
+        position: absolute;
+        height: 4px;
+        background-color: springgreen;
+        bottom: 0;
+        left: 0;
+        animation: cooldown 3s linear backwards;
+        border-radius: 0 1rem 1rem 0;
+    }
+
+    p {
+        font-size: 0.8rem;
+        font-family: 'Space Grotesk';
+        color: var(--s3);
+    }
+
+    .icon--verified {
+        color: #af0;
+        filter: drop-shadow(0 0 1px #af0);
+    }
+
+    .icon--close {
+        position: absolute;
+        top: .25rem;
+        right: .25rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .icon--close:hover {
+        opacity: 50%;
+    }
+}
+
+@keyframes cooldown {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+    }
+}
