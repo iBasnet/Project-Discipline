@@ -18,6 +18,7 @@ const createVideo = async (req, res) => {
         res.status(201).json(savedVideo);
     } catch (error) {
         res.status(500).json({ message: 'Error saving video', error: error.message });
+        console.log(error);
     }
 }
 

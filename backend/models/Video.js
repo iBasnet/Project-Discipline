@@ -17,7 +17,8 @@ const videoSchema = new mongoose.Schema(
         },
         willTry: {
             type: mongoose.Schema.Types.Mixed,
-            required: [true, 'A decision is required'],
+            default: null,
+            // required: [true, 'A decision is required'],
         },
     },
     {
