@@ -102,6 +102,7 @@ export default function Hero() {
                 </div>
             </form>
             {showAlert && <Alerts setShowAlert={setShowAlert} />}
+            <button className="fs" title="syncs documents from mongodb to a local file using file management">Fetch & Sync</button>
         </section >
     )
 }

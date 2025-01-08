@@ -252,3 +252,18 @@ section.hero {
     transform: translate(0%, 75%);
     z-index: -10;
 }
+
+.fs {
+    position: absolute;
+    bottom: 2rem;
+    left: 5rem;
+    padding: .5em 1em;
+    border-radius: .5em;
+    outline: none;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.fs:hover {
+    opacity: 75%;
+}
