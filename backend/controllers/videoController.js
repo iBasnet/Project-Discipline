@@ -22,4 +22,25 @@ const createVideo = async (req, res) => {
     }
 }
 
-module.exports = { getAllVideos, createVideo };
+// Update an existing video
+const updateVideo = async (req, res) => {
+    const { link } = req.params;
+    const updatedData = req.body;
+
+    try {
+        const video = await Video.findOneAndUpdate(
+            // update the updatedData
+        )
+
+        if (!video) {
+            return res.status(404).json({ message: 'Video not found' });
+        }
+
+        res.status(200).json(video);
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating video', error: error.message });
+        console.log(error);
+    }
+}
+
+module.exports = { getAllVideos, createVideo, updateVideo };

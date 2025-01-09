@@ -10,6 +10,7 @@ type willTry = boolean | null;
 export default function Hero() {
 
     const [showAlert, setShowAlert] = useState(false);
+    const [editMode, setEditMode] = useState(false);
 
     const { state, dispatch } = useContext(FormContext);
 
@@ -46,6 +47,38 @@ export default function Hero() {
         }
     }
 
+    const handleEdit = async () => {
+
+        try {
+
+            if (!state.link) {
+                console.error('Link is required');
+                return;
+            }
+
+            const response = await fetch(`https://localhost:5172/api/videos/${state.link}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(state)
+            })
+
+            // Handle response
+            if (!response.ok) {
+                console.error('Failed to update data', response.statusText);
+                return;
+            }
+
+            const updatedVideo = await response.json();
+
+            console.log('Updated video:', updatedVideo);
+
+        } catch (error) {
+            console.error('Error caught updating data', error);
+        }
+    }
+
     const parseOptions = (option: string) => (option === 'null' ? null : option === 'true' ? true : false)
 
     const stringifyOptions = (option: boolean | null) => (option === null ? 'null' : option ? 'true' : 'false')
@@ -55,7 +88,11 @@ export default function Hero() {
             <form>
                 <div className="form__title">
                     <h2>Welcome!</h2>
-                    <p>let's get to the thick of it</p>
+                    {
+                        editMode
+                            ? <p>🚨 Use video link for referencing 🚨</p>
+                            : <p>let's get to the thick of it</p>
+                    }
                 </div>
                 <div className="form__input">
                     <div className="form__group-1">
@@ -95,14 +132,16 @@ export default function Hero() {
                         </select>
                     </div>
                 </div>
-                <button type="submit" onClick={handleSubmit}>Submit</button>
+                <button type="submit" onClick={editMode ? handleEdit : handleSubmit}>{editMode ? 'Update' : 'Submit'}</button>
                 <div className="form__control">
                     <BiReset title="Reset form" onClick={() => dispatch({ type: 'RESET_STATE' })} />
-                    <RiUploadCloud2Fill title="Update data" />
+                    <RiUploadCloud2Fill title="Update data"
+                        onClick={() => setEditMode(!editMode)}
+                    />
                 </div>
             </form>
             {showAlert && <Alerts setShowAlert={setShowAlert} />}
-            <button className="fs" title="syncs documents from mongodb to a local file using file management">Fetch & Sync</button>
+            {/* <button className="fs" title="syncs documents from mongodb to a local file using file management">Fetch & Sync</button> */}
         </section >
     )
 }

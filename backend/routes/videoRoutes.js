@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllVideos, createVideo } = require('../controllers/videoController');
+const { getAllVideos, createVideo, updateVideo } = require('../controllers/videoController');
 
 const router = express.Router();
 
@@ -8,5 +8,8 @@ router.get('/', getAllVideos);
 
 // POST /api/videos - Add a new video
 router.post('/', createVideo);
+
+// PUT /api/videos - Update an existing video
+router.put('/api/videos/:link', updateVideo);
 
 module.exports = router;
