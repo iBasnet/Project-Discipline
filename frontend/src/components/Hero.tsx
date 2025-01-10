@@ -47,16 +47,17 @@ export default function Hero() {
         }
     }
 
-    const handleEdit = async () => {
+    const handleEdit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+
+        e.preventDefault();
 
         try {
 
             if (!state.link) {
-                console.error('Link is required');
-                return;
+                throw new Error('Link is required');
             }
 
-            const response = await fetch(`https://localhost:5172/api/videos/${state.link}`, {
+            const response = await fetch(`http://localhost:5172/api/videos/${state.link}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,12 +71,12 @@ export default function Hero() {
                 return;
             }
 
-            const updatedVideo = await response.json();
+            const allVideos = await response.json();
 
-            console.log('Updated video:', updatedVideo);
+            console.log('All videos:', allVideos);
 
         } catch (error) {
-            console.error('Error caught updating data', error);
+            console.error('Failed to submit!', error);
         }
     }
 

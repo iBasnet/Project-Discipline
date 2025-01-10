@@ -10,6 +10,6 @@ router.get('/', getAllVideos);
 router.post('/', createVideo);
 
 // PUT /api/videos - Update an existing video
-router.put('/api/videos/:link', updateVideo);
+router.put('/:videoId', updateVideo);
 
 module.exports = router;

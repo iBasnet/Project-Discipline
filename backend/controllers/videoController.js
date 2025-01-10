@@ -24,20 +24,25 @@ const createVideo = async (req, res) => {
 
 // Update an existing video
 const updateVideo = async (req, res) => {
-    const { link } = req.params;
+    const { videoId } = req.params;
     const updatedData = req.body;
 
     try {
-        const video = await Video.findOneAndUpdate(
-            // update the updatedData
-        )
+        const video = await Video.findOne({ link: `https://youtu.be/${videoId}` });
 
-        if (!video) {
+        if (video) {
+            video.tier = updatedData.tier;
+            video.remarks = updatedData.remarks;
+            video.willTry = updatedData.willTry;
+            await video.save();
+        }
+        else {
             return res.status(404).json({ message: 'Video not found' });
         }
+        console.log(video);
+    }
 
-        res.status(200).json(video);
-    } catch (error) {
+    catch (error) {
         res.status(500).json({ message: 'Error updating video', error: error.message });
         console.log(error);
     }
