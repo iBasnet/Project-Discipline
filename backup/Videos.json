@@ -163,7 +163,7 @@
         "_id": "677fc9faf928021ec4dd7b1e",
         "link": "https://youtu.be/NuRa_sbJpxE",
         "tier": "F",
-        "remarks": "https://youtu.be/NuRa_sbJpxE",
+        "remarks": "professional british shitposting",
         "willTry": false,
         "createdAt": "2025-01-09T13:07:06.702Z",
         "updatedAt": "2025-01-09T13:07:06.702Z",
@@ -181,12 +181,72 @@
     },
     {
         "_id": "677fd088f928021ec4dd7b22",
-        "link": "http://youtube.com/",
-        "tier": "S",
-        "remarks": "TEST",
-        "willTry": true,
+        "link": "https://youtu.be/home",
+        "tier": "F",
+        "remarks": "OK",
+        "willTry": false,
         "createdAt": "2025-01-09T13:35:04.487Z",
-        "updatedAt": "2025-01-09T13:35:04.487Z",
+        "updatedAt": "2025-01-10T14:28:37.143Z",
+        "__v": 0
+    },
+    {
+        "_id": "67813e365b02107fdce46676",
+        "link": "https://youtu.be/L1TDePrRomY",
+        "tier": "C",
+        "remarks": "\"dodgy 80s music\" sounds more like Chernobyl 1986 ☢️💀",
+        "willTry": false,
+        "createdAt": "2025-01-10T15:35:18.336Z",
+        "updatedAt": "2025-01-10T15:35:18.336Z",
+        "__v": 0
+    },
+    {
+        "_id": "67813efd5b02107fdce46678",
+        "link": "https://youtu.be/8eXj97stbG8?list=TLPQMTAwMTIwMjXvC0EmocJVrg",
+        "tier": "D",
+        "remarks": "D-D-Don't try this at home! ⚠️",
+        "willTry": false,
+        "createdAt": "2025-01-10T15:38:37.571Z",
+        "updatedAt": "2025-01-10T15:38:37.571Z",
+        "__v": 0
+    },
+    {
+        "_id": "6782a0a913d42fa39a8b0874",
+        "link": "https://youtu.be/axtfB7QPTiw",
+        "tier": "C",
+        "remarks": "Who's Captain Disillusion? The GOAT!",
+        "willTry": false,
+        "createdAt": "2025-01-11T16:47:37.964Z",
+        "updatedAt": "2025-01-11T16:47:37.964Z",
+        "__v": 0
+    },
+    {
+        "_id": "6782a1c813d42fa39a8b0876",
+        "link": "https://youtu.be/-CV-lkyXepA",
+        "tier": "C",
+        "remarks": "Who's Hans Zimmer? The GOAT!",
+        "willTry": null,
+        "createdAt": "2025-01-11T16:52:24.360Z",
+        "updatedAt": "2025-01-11T16:52:24.360Z",
+        "__v": 0
+    },
+    {
+        "_id": "6783e63fe2fefcb418b7718c",
+        "link": "https://youtu.be/QVM-7JM4lyk",
+        "tier": "D",
+        "remarks": "I can't believe I just got rick rolled by a boomer 🗿",
+        "willTry": true,
+        "createdAt": "2025-01-12T15:56:47.857Z",
+        "updatedAt": "2025-01-12T15:56:47.857Z",
+        "__v": 0
+    },
+    {
+        "_id": "6783e6e8e2fefcb418b7718f",
+        "link": "https://youtu.be/MwWACB6w8D0",
+        "tier": "B",
+        "remarks": "Literal RAT RACE 🗑️🚮",
+        "willTry": false,
+        "createdAt": "2025-01-12T15:59:36.868Z",
+        "updatedAt": "2025-01-12T15:59:36.868Z",
         "__v": 0
     }
 ]
