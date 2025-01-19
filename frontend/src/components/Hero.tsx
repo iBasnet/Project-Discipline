@@ -9,6 +9,8 @@ type willTry = boolean | null;
 
 export default function Hero() {
 
+    const url = "https://project-discipline.onredner.com";
+
     const [showAlert, setShowAlert] = useState(false);
     const [editMode, setEditMode] = useState(false);
 
@@ -24,7 +26,7 @@ export default function Hero() {
         }
 
         try {
-            const response = await fetch(`http://localhost:5172/api/videos`, {
+            const response = await fetch(`${url}/api/videos`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -57,7 +59,7 @@ export default function Hero() {
                 throw new Error('Link is required');
             }
 
-            const response = await fetch(`http://localhost:5172/api/videos/${state.link}`, {
+            const response = await fetch(`${url}/api/videos/${state.link}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
