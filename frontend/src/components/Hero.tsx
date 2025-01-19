@@ -9,7 +9,8 @@ type willTry = boolean | null;
 
 export default function Hero() {
 
-    const url = "http://localhost:5172";
+    // const url = "http://localhost:5172";
+    const url = "https://project-disicipline-server.onrender.com";
 
     const [showAlert, setShowAlert] = useState(false);
     const [editMode, setEditMode] = useState(false);
